@@ -1,0 +1,72 @@
+#This script is intended to be run at the beginning of the analysis.
+## It will create directories and install the necessary R packages on your local device.
+
+####
+#Directory set up----
+####
+## The following code will create the necessary directories within this project folder.
+## Make sure these lines are run in order.
+
+#Check working directory
+getwd()
+#If this does not match the project folder you are intending to complete your analysis in, use setwd() to change it
+
+##Create Data folder----
+dir.create("./data/")
+
+###Create folders within Data
+dir.create("./data/cells_assigned/") #csv's of checklists that were not properly assigned a cell will end up here to be checked and fixed
+dir.create("./data/tar_files/") #put data here initially
+dir.create("./data/txt.gz_files/") #extract tar files into here
+dir.create("./data/raw/") #extract .txt.gz files into here, should end up as .txt files
+
+
+##Create Output folder----
+dir.create("./output/")
+
+###Create folders within Output
+dir.create("./output/cell_information/") #will put cell raster and country outline vectors here
+dir.create("./output/departures/") 
+dir.create("./output/exploratory_analyses/") #this should probably be renamed because this is necessary info, but that would require a lot of changing
+dir.create("./output/htmls/") #not sure if I need this
+
+
+####Create folders within departures
+dir.create("./output/departures/halfmax_pngs/") #graphs of estimated departure distributions end up here
+dir.create("./output/departures/halfmax_data/") #csv's of estimated departure distributions end up here
+dir.create("./output/departures/divergent_chains/") #objects of model fits with chains that diverged end up here
+
+####Create folders within exploratory_analyses 
+dir.create("./output/exploratory_analyses/distance/") #figures about distance end up here (distribution across lists and effect on detection likelihood of each species)
+dir.create("./output/exploratory_analyses/duration/") #figures about duration end up here (distribution across lists and effect on detection likelihood of each species)
+dir.create("./output/exploratory_analyses/time_of_day/") #figures about time of day end up here (distribution across lists and effect on detection likelihood of each species)
+dir.create("./output/exploratory_analyses/number_observers/") #figures about number of observers end up here (distribution across lists and effect on detection likelihood of each species)
+dir.create("./output/exploratory_analyses/effort_years/") #figures of the distribution of each effort variable across the second half of the year, split by year, ends up here
+dir.create("./output/exploratory_analyses/year_round/") #dfigures and datasets describing which cell/year/species/ combos count as year round, and at what proportion, end up here
+dir.create("./output/exploratory_analyses/data_availability/") #figures and datasets describing which cells have enough data for analysis end up here
+
+####
+# Checking and Installing Packages----
+####
+## The following code will check if you are missing any of the R packages
+##  required for this analysis on your local device and install them for you.
+
+#List necessary packages
+pkg <- c("auk", "tidyverse", "here", "lubridate", "sf", "rgdal",
+         "scales", "rnaturalearth", "rgeos", "terra") #not sure if we need lubridate, rgdal, scales, or rgeos
+
+#List the ones that are not already installed
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+
+#install packages that aren't already, or return a message
+if(length(new.pkg) > 0){
+  print(paste("Install missing package(s):", new.pkg, sep=' '))
+  install.packages(new.pkg, dependencies = TRUE)
+}else{
+  print("All packages are already installed!")
+}
+
+#rstan/cmdstanr for R 4.2...
+
+#Local set up complete. Bring in data and extract. Then begin HPC set up.
+
