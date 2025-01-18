@@ -12,8 +12,7 @@ data/
 output/
 
 #sh_files
-sh_files/norahonkomp*
-sh_files/bin/
+
 
 #htmls
 *.html
