@@ -1,5 +1,7 @@
 #Setting Analysis Parameters----
 ## The following parameters can be customized by changing the words/numbers listed. Do not change object names.
+## These objects are used across all scripts, both those run locally and on the HPC.
+## This script will need to be re-uploaded to the HPC system anytime changes are made.
 
 ## Included Species:----
 ### Note- these two lists must contain information referring to the same species, in the same order.
@@ -23,13 +25,14 @@ alpha_codes <- c("turvul","rethaw", "osprey", "amekes", "coohaw",
 length(common_names) == length(alpha_codes)
 #if this says false, you are missing a species in one of the lists
 
-#After script __, you can pick which species should remain in the analysis based on data availability.
+#After script 10, you can pick which species should remain in the analysis based on data availability.
 #Start with the list from the alpha_codes object above, then remove species that you do not want to continue analyzing.
 refined_species <- c("turvul","rethaw", "osprey", "amekes", "coohaw", 
                      "norhar2", "shshaw", "perfal", "merlin",
                      "brwhaw", "swahaw", "goleag",
                      "ferhaw", "miskit", "swtkit", "baleag",
                       "burowl")
+## the species list can be shortened on last time after the departure dates are calculated (see "final_species" below)
 
 
 ## Included Years:----
@@ -44,15 +47,12 @@ years_included <- c(2002:2021) #these don't need to be continuous, you can make 
 ### This will come from looking at the file names of the downloaded data 
 data_version <- "relJun-2022"
 # this could also be used to keep track of versions if running the analysis multiple times 
-#(e.g. "relJun-2022-2" if running a second time, but input filenames may need to be changed manually when transitioning between versions)
+#(e.g. "relJun-2022-B" if running a second time, but input filenames in latest script may need to be changed manually when transitioning between versions)
 
 # Included Countries: ----
-countries_included <- c("US", "CA")
-## These must be the country letter codes (or country names) recognized by the auk_country() filter in the auk package
-countries_fullname <- c("united states of america", "canada")
-#These must be the full names of countries recognized by the ne_countries() function in the rnaturalearth package
-map_countries <- c("united states of america", "canada", "mexico", "greenland")
-#These must be the full names of countries recognized by the ne_countries() function in the rnaturalearth package as well.
+countries_included <- c("US", "CA") #These must be the country letter codes (or country names) recognized by the auk_country() filter in the auk package
+countries_fullname <- c("united states of america", "canada") #These must be the full names of countries recognized by the ne_countries() function in the rnaturalearth package
+map_countries <- c("united states of america", "canada", "mexico", "greenland") #These must be the full names of countries recognized by the ne_countries() function in the rnaturalearth package as well.
 #You can include surrounding countries here so that the maps look more complete. ###Check if I left this in
 
 
@@ -76,8 +76,8 @@ species_present_days <- 10 #days
 
 #Parameters for determining year-round species----
 max_doy <- 334 #November 30th (non-leap years), days after this are considered the "year-round period"
-yero_cutoff <- 0.05 #max proportion of lists reporting a species in the year-round period for a cell-year combo to remain in the species' analysis (out of 1)
-prop_yero_max <- 0.4 #max proportion of years a cell can be year-round and remain in a species analysis (if the cell stays in, the year-round years are still removed)
+yero_cutoff <- 0.05 #max proportion of lists reporting a species in the year-round period for a cell-year combo to remain in the species' analysis (out of 1. so 0.05 = 5%)
+prop_yero_max <- 0.4 #max proportion of years a cell can be year-round and remain in a species analysis (if the cell stays in, the year-round years are still removed) (out of 1. so 0.4 is 40%)
 
 
 #Bayes GAM parameters----
@@ -85,7 +85,7 @@ ITER <- 1500
 CHAINS <- 4
 delta_start <- 0.95
 TREE_DEPTH <- 15
-#these are used in script ____ for ____ function from rstanarm
+#these are used in script 12 for arguments in the stan_gamm4 function from rstanarm.
 
 #Final Species and years
 ## After the departure date distributions are estimated, the species list and year list can be altered here
@@ -95,3 +95,4 @@ final_species<- c("turvul","rethaw", "osprey", "amekes", "coohaw",
                   "brwhaw", "swahaw",
                   "miskit", "swtkit", "baleag",
                   "burowl")
+## start with "refined_species" list and take out any species you dont want included in the output dataset
