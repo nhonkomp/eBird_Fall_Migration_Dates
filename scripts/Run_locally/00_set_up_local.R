@@ -16,19 +16,19 @@ dir.create("./data/")
 
 ###Create folders within Data
 dir.create("./data/cells_assigned/") #csv's of checklists that were not properly assigned a cell will end up here to be checked and fixed
-dir.create("./data/tar_files/") #put data here initially
-dir.create("./data/txt.gz_files/") #extract tar files into here
-dir.create("./data/raw/") #extract .txt.gz files into here, should end up as .txt files
+dir.create("./data/tar_files/") #put data here initially (should download as .tar files)
+dir.create("./data/txt.gz_files/") #extract tar files into here (should extract as .txt.gz)
+dir.create("./data/raw/") #extract .txt.gz files into here, should end up as .txt files (its ok if above process differs, as long as .txt files of all data end up in this folder)
 
 
 ##Create Output folder----
 dir.create("./output/")
 
 ###Create folders within Output
-dir.create("./output/cell_information/") #will put cell raster and country outline vectors here
+dir.create("./output/cell_information/") #put cell raster and country outline vectors here
 dir.create("./output/departures/") 
-dir.create("./output/exploratory_analyses/") #this should probably be renamed because this is necessary info, but that would require a lot of changing
-dir.create("./output/htmls/") #not sure if I need this
+dir.create("./output/exploratory_analyses/") #this name is deceptive because these analyses actually provide necessary info. To deeply embedded to change now.
+dir.create("./output/htmls/") #not sure if need this. decide if keeping rmarkdowns
 
 
 ####Create folders within departures
@@ -42,7 +42,7 @@ dir.create("./output/exploratory_analyses/duration/") #figures about duration en
 dir.create("./output/exploratory_analyses/time_of_day/") #figures about time of day end up here (distribution across lists and effect on detection likelihood of each species)
 dir.create("./output/exploratory_analyses/number_observers/") #figures about number of observers end up here (distribution across lists and effect on detection likelihood of each species)
 dir.create("./output/exploratory_analyses/effort_years/") #figures of the distribution of each effort variable across the second half of the year, split by year, ends up here
-dir.create("./output/exploratory_analyses/year_round/") #dfigures and datasets describing which cell/year/species/ combos count as year round, and at what proportion, end up here
+dir.create("./output/exploratory_analyses/year_round/") #figures and datasets describing which cell/year/species/ combos count as year round, and at what proportion, end up here
 dir.create("./output/exploratory_analyses/data_availability/") #figures and datasets describing which cells have enough data for analysis end up here
 
 ####
@@ -53,7 +53,7 @@ dir.create("./output/exploratory_analyses/data_availability/") #figures and data
 
 #List necessary packages
 pkg <- c("auk", "tidyverse", "here", "lubridate", "sf", "rgdal",
-         "scales", "rnaturalearth", "rgeos", "terra") #not sure if we need lubridate, rgdal, scales, or rgeos
+         "scales", "rnaturalearth", "rgeos", "terra") #not sure if we need lubridate, rgdal, scales, or rgeos anymore
 
 #List the ones that are not already installed
 new.pkg <- pkg[!(pkg %in% installed.packages())]
@@ -66,7 +66,11 @@ if(length(new.pkg) > 0){
   print("All packages are already installed!")
 }
 
-#rstan/cmdstanr for R 4.2...
+#rstan/cmdstanr for R 4.2... 
+## 5/11/25: not sure what this note was for. I went through a period early on (pre-HPC incrporation) where 
+##         I tried cmdstanr installation and running (for GAMs I think? potnentially even frequentist GAMs?)
+##         to make things run faster on my local device. Shouldn't be any remainin cmdstanr code anywhere.
+##         Will check revision history (in original repository) to see why this may be here.
 
-#Local set up complete. Bring in data and extract. Then begin HPC set up.
+#Local set up complete. Bring in data and extract into designated folders. Then begin HPC set up.
 
