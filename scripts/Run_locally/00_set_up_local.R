@@ -66,11 +66,5 @@ if(length(new.pkg) > 0){
   print("All packages are already installed!")
 }
 
-#rstan/cmdstanr for R 4.2... 
-## 5/11/25: not sure what this note was for. I went through a period early on (pre-HPC incrporation) where 
-##         I tried cmdstanr installation and running (for GAMs I think? potnentially even frequentist GAMs?)
-##         to make things run faster on my local device. Shouldn't be any remainin cmdstanr code anywhere.
-##         Will check revision history (in original repository) to see why this may be here.
-
 #Local set up complete. Bring in data and extract into designated folders. Then begin HPC set up.
 
