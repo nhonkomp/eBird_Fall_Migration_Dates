@@ -27,8 +27,8 @@ dir.create("./output/")
 ###Create folders within Output
 dir.create("./output/cell_information/") #put cell raster and country outline vectors here
 dir.create("./output/departures/") 
-dir.create("./output/exploratory_analyses/") #this name is deceptive because these analyses actually provide necessary info. To deeply embedded to change now.
-dir.create("./output/htmls/") #not sure if need this. decide if keeping rmarkdowns
+dir.create("./output/exploratory_analyses/") #related to effort assessment
+dir.create("./output/htmls/") #related to rmarkdowns
 
 
 ####Create folders within departures
@@ -52,8 +52,10 @@ dir.create("./output/exploratory_analyses/data_availability/") #figures and data
 ##  required for this analysis on your local device and install them for you.
 
 #List necessary packages
+##not sure if we need lubridate, rgdal, scales, or rgeos anymore. 
+##Can leave those out for now if having trouble downloading
 pkg <- c("auk", "tidyverse", "here", "lubridate", "sf", "rgdal",
-         "scales", "rnaturalearth", "rgeos", "terra") #not sure if we need lubridate, rgdal, scales, or rgeos anymore
+         "scales", "rnaturalearth", "rgeos", "terra") 
 
 #List the ones that are not already installed
 new.pkg <- pkg[!(pkg %in% installed.packages())]

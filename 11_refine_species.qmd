@@ -1,0 +1,264 @@
+---
+title: "Exploratory Analyses"
+date: "`r Sys.Date()`"
+format: html
+toc: true
+toc-location: left
+---
+
+```{=html}
+<!---
+This is an optional report of the data availability for each species. Use this
+docment to refine species choice (i.e. remove species from the analysis if there is not enough data available).
+
+This markdown must be placed in the main project folder (rather than within the scripts folder).
+
+All file paths will need to be updated manually (sorry!).
+-->
+```
+```{r libraries, include = F}
+
+library(tidyverse)
+
+```
+
+# Overall Cells
+
+Number of years per cell containing at least 100 checklists in the second half of a given year (2002-2021).
+
+"Overall Cells" shown are the starting point, then each species' cells are further filtered.
+
+![](output/exploratory_analyses/data_availability/overall_cells_relJun-2022.png)
+
+# Species Cells
+
+"Available Cells" had at least 10 days with the species reported between the averag esummer solstice (June 21st) and the cut off date for year round (November 30th).
+
+"Year Round Cells" had more thana 5% of species reports falling after the cut off date (Nov 30th) in a given year, and these cell/year combos were removed from that species' analysis.
+
+"Year- Round Proportions" are the proportion of available years that were considered year round for a given species. This was calculated by dividing the number of years a cell met the "year round" criteria divided by the total nuber of years that cell met the "Available" criteria. These figures can be used to determine the your round proportion cut off (default is 0.4). If a cell has a proportion above the cut off value, it is complety removed from the species' analysis, even in the years it was not considered year round.
+
+"Final Cells" are the cell/year combos that remain in a species analysis because they:
+
+-   meet the "overall cells" criteria (100 lists)
+
+-   include reports of the species on at least 10 unique days between the summer solstice and the year round cut off date in a given year
+
+-   are not "year round" (\<5% species reports after cut off date)
+
+-   do not have an overall year round proportion above the cut off value
+
+```{r include = F}
+dir <- "output/exploratory_analyses/year_round/"
+
+year_round <- noquote(list.files(dir, full.names =T, pattern = "yero_cells"))
+yero_prop <- noquote(intersect(list.files(dir, full.names = T, pattern = "prop_yero"), list.files(dir, full.names = T, pattern = ".png")))
+
+dir2 <- "output/exploratory_analyses/data_availability/"
+
+avail_cells <- noquote(list.files(dir2, full.names = T, pattern = "range"))
+final_cells <- noquote(list.files(dir2, full.names =T, pattern = "final_cells"))
+
+#these lists can be used to copy/paste file paths into the chart
+
+```
+
+::: column-page
+| Available Cells                                                                  | Proportion Year Round                                                         | Final Cells                                                                            |
+|-------------------------|-----------------------|-------------------------|
+| ![](output/exploratory_analyses/data_availability/range_amekes_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_amekes_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_amekes_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_baleag_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_baleag_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_baleag_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_brwhaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_brwhaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_brwhaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_burowl_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_burowl_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_burowl_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_coohaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_coohaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_coohaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_ferhaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_ferhaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_ferhaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_flaowl_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_flaowl_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_flaowl_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_goleag_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_goleag_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_goleag_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_loeowl_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_loeowl_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_loeowl_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_merlin_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_merlin_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_merlin_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_miskit_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_miskit_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_miskit_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_norhar2_relJun-2022.png) | ![](output/exploratory_analyses/year_round/prop_yero_norhar2_relJun-2022.png) | ![](output/exploratory_analyses/data_availability/final_cells_norhar2_relJun-2022.png) |
+| ![](output/exploratory_analyses/data_availability/range_osprey_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_osprey_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_osprey_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_perfal_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_perfal_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_perfal_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_reshaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_reshaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_reshaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_rethaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_rethaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_rethaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_rolhaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_rolhaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_rolhaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_sheowl_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_sheowl_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_sheowl_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_shshaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_shshaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_shshaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_swahaw_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_swahaw_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_swahaw_relJun-2022.png)  |
+| ![](output/exploratory_analyses/data_availability/range_swtkit_relJun-2022.png)  | ![](output/exploratory_analyses/year_round/prop_yero_swtkit_relJun-2022.png)  | ![](output/exploratory_analyses/data_availability/final_cells_swtkit_relJun-2022.png)  |
+:::
+
+# Species-Cell-Year Combos
+
+```{r include = F}
+combos <- read.csv("./output/exploratory_analyses/data_availability/final_combos_relJun-2022.csv")
+
+species_tally <- combos %>%
+  group_by(species) %>%
+  tally() %>%
+  arrange(desc(n))
+
+names(species_tally)[2] <- "combos_avail"
+
+year_tally <- combos %>%
+  group_by(year) %>%
+  tally()
+
+names(year_tally)[2] <- "combos_avail"
+
+
+```
+
+Total number of Species-Cell-Year combos potentially available for analysis: `r nrow(combos)`
+
+Combos available per species:
+
+```{r echo=FALSE}
+
+print(species_tally, n = 100)
+
+```
+
+Combos available per year:
+
+```{r echo=FALSE}
+
+print(year_tally, n = 100)
+
+```
+
+# Proportion year round
+
+```{r include=FALSE}
+
+prop_hist <- noquote(list.files(dir, full.names =T, pattern = "prop_hist"))
+
+
+```
+
+| Histograms of Proportions Year Round |
+|--------------------------------------|
+| ![](prop_hist)                       |
+| ![](prop_hist2)                      |
+| ![](prop_hist3)                      |
+| ![](prop_hist4)                      |
+| ![](prop_hist5)                      |
+| ![](prop_hist6)                      |
+| ![](prop_hist7)                      |
+| ![](prop_hist8)                      |
+| ![](prop_hist9)                      |
+| ![](prop_hist10)                     |
+| ![](prop_hist11)                     |
+| ![](prop_hist12)                     |
+| ![](prop_hist13)                     |
+| ![](prop_hist14)                     |
+| ![](prop_hist15)                     |
+| ![](prop_hist16)                     |
+| ![](prop_hist17)                     |
+| ![](prop_hist18)                     |
+| ![](prop_hist19)                     |
+| ![](prop_hist20)                     |
+| ![](prop_hist21)                     |
+| ![](prop_hist22)                     |
+
+# Correlation between Effort Variables
+
+Correlation between Predictor Variables:
+
+|                      | Time of Day | Duration | Distance | Number Obs |
+|:--------------------:|:-----------:|:--------:|:--------:|:----------:|
+|   **Time of Day**    |  **1.00**   |  -0.20   |  -0.08   |   -0.01    |
+|     **Duration**     |    -0.20    | **1.00** |   0.43   |    0.14    |
+|     **Distance**     |    -0.08    |   0.43   | **1.00** |    0.08    |
+| **Number Observers** |    -0.01    |   0.14   |   0.08   |  **1.00**  |
+
+# Effort by Year
+
+Distribution of each effort variable by day of year (second half of the year). Each point represents the effort recorded for an individual checklist. Plots are separate by year for interpretability (all years together are completely black from too many layers of points).
+
+```{r include = F}
+dir1 <- "output/exploratory_analyses/effort_years/"
+tod <- noquote(list.files(dir1, full.names =T, pattern = "tod"))
+
+dur <- noquote(list.files(dir1, full.names =T, pattern = "dur"))
+
+dis <- noquote(list.files(dir1, full.names =T, pattern = "dis"))
+
+obs <- noquote(list.files(dir1, full.names =T, pattern = "obs"))
+
+```
+
+::: column-page
+| Year | Time of Day (hrs since midnight) | Duration (min) | Distance (km) | Number of Observers |
+|---------------|---------------|---------------|---------------|---------------|
+| 2002 | ![](tod)                         | ![](dur)       | ![](dis)      | ![](obs)            |
+| 2003 | ![](tod2)                        | ![](dur2)      | ![](dis2)     | ![](obs2)           |
+| 2004 | ![](tod3)                        | ![](dur3)      | ![](dis3)     | ![](obs3)           |
+| 2005 | ![](tod4)                        | ![](dur4)      | ![](dis4)     | ![](obs4)           |
+| 2006 | ![](tod5)                        | ![](dur5)      | ![](dis5)     | ![](obs5)           |
+| 2007 | ![](tod6)                        | ![](dur6)      | ![](dis6)     | ![](obs6)           |
+| 2008 | ![](tod7)                        | ![](dur7)      | ![](dis7)     | ![](obs7)           |
+| 2009 | ![](tod8)                        | ![](dur8)      | ![](dis8)     | ![](obs8)           |
+| 2010 | ![](tod9)                        | ![](dur9)      | ![](dis9)     | ![](obs9)           |
+| 2011 | ![](tod10)                       | ![](dur10)     | ![](dis10)    | ![](obs10)          |
+| 2012 | ![](tod11)                       | ![](dur11)     | ![](dis11)    | ![](obs11)          |
+| 2013 | ![](tod12)                       | ![](dur12)     | ![](dis12)    | ![](obs12)          |
+| 2014 | ![](tod13)                       | ![](dur13)     | ![](dis13)    | ![](obs13)          |
+| 2015 | ![](tod14)                       | ![](dur14)     | ![](dis14)    | ![](obs14)          |
+| 2016 | ![](tod15)                       | ![](dur15)     | ![](dis15)    | ![](obs15)          |
+| 2017 | ![](tod16)                       | ![](dur16)     | ![](dis16)    | ![](obs16)          |
+| 2018 | ![](tod17)                       | ![](dur17)     | ![](dis17)    | ![](obs17)          |
+| 2019 | ![](tod18)                       | ![](dur18)     | ![](dis18)    | ![](obs18)          |
+| 2020 | ![](tod19)                       | ![](dur19)     | ![](dis19)    | ![](obs19)          |
+| 2021 | ![](tod20)                       | ![](dur20)     | ![](dis20)    | ![](obs20)          |
+:::
+
+# Effect of Effort on Detectability
+
+**First Row:** Histograms of each effort variable. Data is restricted to "Overall Cells" and only the years included (2022-2021), but not restricted to second half of the year(i.e. effort from lists in Jan-June is included).
+
+**All Other Rows:** Percent of checklists reported the given species by effort of checklist.
+
+```{r include = F}
+dir3 <- "output/exploratory_analyses/time_of_day/"
+tod2 <- noquote(list.files(dir3, full.names =T, pattern = "tod"))
+
+dir4 <- "output/exploratory_analyses/duration/"
+dur2 <- noquote(list.files(dir4, full.names =T, pattern = "dur"))
+
+dir5 <- "output/exploratory_analyses/distance/"
+dis2 <- noquote(list.files(dir5, full.names =T, pattern = "dis"))
+
+dir6 <- "output/exploratory_analyses/number_observers/"
+obs2 <- noquote(list.files(dir6, full.names =T, pattern = "obs"))
+
+```
+
+::: column-page
+| Time of Day (hrs since midnight) | Duration (hrs) | Distance (km) | Number of Observers |
+|-------------------|------------------|------------------|------------------|
+| ![](tod2)                        | ![](dur2)      | ![](dis2)     | ![](obs2)           |
+| ![](tod22)                       | ![](dur22)     | ![](dis22)    | ![](obs22)          |
+| ![](tod23)                       | ![](dur23)     | ![](dis23)    | ![](obs23)          |
+| ![](tod24)                       | ![](dur24)     | ![](dis24)    | ![](obs24)          |
+| ![](tod25)                       | ![](dur25)     | ![](dis25)    | ![](obs25)          |
+| ![](tod26)                       | ![](dur26)     | ![](dis26)    | ![](obs26)          |
+| ![](tod27)                       | ![](dur27)     | ![](dis27)    | ![](obs27)          |
+| ![](tod28)                       | ![](dur28)     | ![](dis28)    | ![](obs28)          |
+| ![](tod29)                       | ![](dur29)     | ![](dis29)    | ![](obs29)          |
+| ![](tod210)                      | ![](dur210)    | ![](dis210)   | ![](obs210)         |
+| ![](tod211)                      | ![](dur211)    | ![](dis211)   | ![](obs211)         |
+| ![](tod212)                      | ![](dur212)    | ![](dis212)   | ![](obs212)         |
+| ![](tod213)                      | ![](dur213)    | ![](dis213)   | ![](obs213)         |
+| ![](tod214)                      | ![](dur214)    | ![](dis214)   | ![](obs214)         |
+| ![](tod215)                      | ![](dur215)    | ![](dis215)   | ![](obs215)         |
+| ![](tod216)                      | ![](dur216)    | ![](dis216)   | ![](obs216)         |
+| ![](tod217)                      | ![](dur217)    | ![](dis217)   | ![](obs217)         |
+| ![](tod218)                      | ![](dur218)    | ![](dis218)   | ![](obs218)         |
+| ![](tod219)                      | ![](dur219)    | ![](dis219)   | ![](obs219)         |
+| ![](tod220)                      | ![](dur220)    | ![](dis220)   | ![](obs220)         |
+| ![](tod221)                      | ![](dur221)    | ![](dis221)   | ![](obs221)         |
+| ![](tod222)                      | ![](dur222)    | ![](dis222)   | ![](obs222)         |
+| ![](tod223)                      | ![](dur223)    | ![](dis223)   | ![](obs223)         |
+:::

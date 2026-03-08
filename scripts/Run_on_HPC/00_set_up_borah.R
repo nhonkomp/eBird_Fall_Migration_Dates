@@ -88,8 +88,10 @@ dir.create("./output/exploratory_analyses/year_round/")
 ##### folder on your local machine into the "./scripts/" folder on borah.
 #Place the contents of the "./sh_files/" folder on your local machine in the "./sh_files"
 ##### folder on borah.
-#Last, use globus to upload the raw data .txt files from the "./data/raw/" folder 
+#Upload the raw data .txt files from the "./data/raw/" folder 
 ##### on your local machine to the "./data/raw" folder on borah.
+#Update the parameters.R script to match your analysis.
+## Transfer this to the working directory on borah. Do not place this file in the ./script/ folder.
 
 #Now you are ready to run script 01.
 

@@ -1,0 +1,1788 @@
+---
+title: "Departure Date Summarization"
+date: "`r Sys.Date()`"
+format: html
+toc: true
+toc-location: left
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r libraries, include = F}
+
+library(tidyverse)
+source("./parameters.R")
+
+```
+
+# Combo Counts
+
+::: column-page
+```{r, echo = F}
+
+df <- read.csv("./output/departures/calculated_departures_combos.csv")
+
+knitr::kable(df, col.names = c("Species", 2002:2021))
+
+
+```
+:::
+
+# NA Distribution
+
+![](output/departures/summary_figs/hmNA_hist_relJun-2022.png)
+
+# Confidence Interval Distribution
+
+![](output/departures/summary_figs/hmCI_hist_relJun-2022.png)
+
+# Standard Error Distribution
+
+![](output/departures/summary_figs/hmSE_hist_relJun-2022.png)
+
+# Departure Dates by Year
+
+::: panel-tabset
+## 2002
+
+![](output/departures/summary_figs/depart_hist_2002_relJun-2022.png)
+
+
+## 2003
+
+![](output/departures/summary_figs/depart_hist_2003_relJun-2022.png)
+
+## 2004
+
+![](output/departures/summary_figs/depart_hist_2004_relJun-2022.png)
+
+## 2005
+
+![](output/departures/summary_figs/depart_hist_2005_relJun-2022.png)
+
+## 2006
+
+![](output/departures/summary_figs/depart_hist_2006_relJun-2022.png)
+
+## 2007
+
+![](output/departures/summary_figs/depart_hist_2007_relJun-2022.png)
+
+## 2008
+
+![](output/departures/summary_figs/depart_hist_2008_relJun-2022.png)
+
+## 2009
+
+![](output/departures/summary_figs/depart_hist_2009_relJun-2022.png)
+
+## 2010
+
+![](output/departures/summary_figs/depart_hist_2010_relJun-2022.png)
+
+## 2011
+
+![](output/departures/summary_figs/depart_hist_2011_relJun-2022.png)
+
+## 2012
+
+![](output/departures/summary_figs/depart_hist_2012_relJun-2022.png)
+
+## 2013
+
+![](output/departures/summary_figs/depart_hist_2013_relJun-2022.png)
+
+## 2014
+
+![](output/departures/summary_figs/depart_hist_2014_relJun-2022.png)
+
+## 2015
+
+![](output/departures/summary_figs/depart_hist_2015_relJun-2022.png)
+
+## 2016
+
+![](output/departures/summary_figs/depart_hist_2016_relJun-2022.png)
+
+## 2017
+
+![](output/departures/summary_figs/depart_hist_2017_relJun-2022.png)
+
+## 2018
+
+![](output/departures/summary_figs/depart_hist_2018_relJun-2022.png)
+
+## 2019
+
+![](output/departures/summary_figs/depart_hist_2019_relJun-2022.png)
+
+## 2020
+
+![](output/departures/summary_figs/depart_hist_2020_relJun-2022.png)
+
+## 2021
+
+![](output/departures/summary_figs/depart_hist_2021_relJun-2022.png)
+:::
+
+# Departure Dates by Species
+
+::: panel-tabset
+## AMKE
+
+![](output/departures/summary_figs/depart_hist_amekes_relJun-2022.png)
+
+## BAEA
+
+![](output/departures/summary_figs/depart_hist_baleag_relJun-2022.png)
+
+## BWHA
+
+![](output/departures/summary_figs/depart_hist_brwhaw_relJun-2022.png)
+
+## BUOW
+
+![](output/departures/summary_figs/depart_hist_burowl_relJun-2022.png)
+
+## COHA
+
+![](output/departures/summary_figs/depart_hist_coohaw_relJun-2022.png)
+
+## FEHA
+
+![](output/departures/summary_figs/depart_hist_ferhaw_relJun-2022.png)
+
+## GOEA
+
+![](output/departures/summary_figs/depart_hist_goleag_relJun-2022.png)
+
+## MERLIN
+
+![](output/departures/summary_figs/depart_hist_merlin_relJun-2022.png)
+
+## MIKI
+
+![](output/departures/summary_figs/depart_hist_miskit_relJun-2022.png)
+
+## NOHA
+
+![](output/departures/summary_figs/depart_hist_norhar2_relJun-2022.png)
+
+## OSPREY
+
+![](output/departures/summary_figs/depart_hist_osprey_relJun-2022.png)
+
+## PEFA
+
+![](output/departures/summary_figs/depart_hist_perfal_relJun-2022.png)
+
+## RTHA
+
+![](output/departures/summary_figs/depart_hist_rethaw_relJun-2022.png)
+
+## SSHA
+
+![](output/departures/summary_figs/depart_hist_shshaw_relJun-2022.png)
+
+## SWHA
+
+![](output/departures/summary_figs/depart_hist_swahaw_relJun-2022.png)
+
+## STKI
+
+![](output/departures/summary_figs/depart_hist_swtkit_relJun-2022.png)
+
+## TUVU
+
+![](output/departures/summary_figs/depart_hist_turvul_relJun-2022.png)
+:::
+
+# Departure Date Maps
+
+::: column-page
+
+## By Species
+
+::: {.panel-tabset}
+
+## AMKE
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_amekes_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_amekes_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_amekes_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_amekes_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_amekes_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_amekes_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_amekes_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_amekes_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_amekes_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_amekes_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_amekes_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_amekes_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_amekes_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_amekes_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_amekes_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_amekes_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_amekes_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_amekes_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_amekes_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_amekes_2021_relJun-2022.png)
+
+:::
+
+## BAEA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_baleag_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_baleag_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_baleag_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_baleag_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_baleag_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_baleag_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_baleag_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_baleag_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_baleag_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_baleag_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_baleag_2021_relJun-2022.png)
+
+:::
+
+## BWHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_brwhaw_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_brwhaw_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_brwhaw_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_brwhaw_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_brwhaw_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_brwhaw_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_brwhaw_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_brwhaw_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_brwhaw_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_brwhaw_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_brwhaw_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_brwhaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_brwhaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_brwhaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_brwhaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_brwhaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_brwhaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_brwhaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_brwhaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_brwhaw_2021_relJun-2022.png)
+
+:::
+
+## BUOW
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_burowl_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_burowl_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_burowl_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_burowl_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_burowl_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_burowl_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_burowl_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_burowl_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_burowl_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_burowl_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_burowl_2021_relJun-2022.png)
+
+:::
+
+## COHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_coohaw_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_coohaw_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_coohaw_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_coohaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_coohaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_coohaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_coohaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_coohaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_coohaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_coohaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_coohaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_coohaw_2021_relJun-2022.png)
+
+:::
+
+## FEHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_ferhaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_ferhaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_ferhaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_ferhaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_ferhaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_ferhaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_ferhaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_ferhaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_ferhaw_2021_relJun-2022.png)
+
+:::
+
+## GOEA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_goleag_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_goleag_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_goleag_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_goleag_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_goleag_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_goleag_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_goleag_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_goleag_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_goleag_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_goleag_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_goleag_2021_relJun-2022.png)
+
+:::
+
+## MERLIN
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_merlin_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_merlin_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_merlin_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_merlin_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_merlin_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_merlin_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_merlin_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_merlin_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_merlin_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_merlin_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_merlin_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_merlin_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_merlin_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_merlin_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_merlin_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_merlin_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_merlin_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_merlin_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_merlin_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_merlin_2021_relJun-2022.png)
+
+:::
+
+## MIKI
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_miskit_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_miskit_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_miskit_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_miskit_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_miskit_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_miskit_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_miskit_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_miskit_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_miskit_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_miskit_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_miskit_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_miskit_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_miskit_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_miskit_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_miskit_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_miskit_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_miskit_2021_relJun-2022.png)
+
+:::
+
+## NOHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_norhar2_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_norhar2_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_norhar2_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_norhar2_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_norhar2_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_norhar2_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_norhar2_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_norhar2_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_norhar2_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_norhar2_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_norhar2_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_norhar2_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_norhar2_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_norhar2_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_norhar2_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_norhar2_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_norhar2_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_norhar2_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_norhar2_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_norhar2_2021_relJun-2022.png)
+
+:::
+
+## OSPREY
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_osprey_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_osprey_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_osprey_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_osprey_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_osprey_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_osprey_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_osprey_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_osprey_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_osprey_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_osprey_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_osprey_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_osprey_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_osprey_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_osprey_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_osprey_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_osprey_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_osprey_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_osprey_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_osprey_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_osprey_2021_relJun-2022.png)
+
+:::
+
+## PEFA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_perfal_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_perfal_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_perfal_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_perfal_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_perfal_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_perfal_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_perfal_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_perfal_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_perfal_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_perfal_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_perfal_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_perfal_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_perfal_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_perfal_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_perfal_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_perfal_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_perfal_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_perfal_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_perfal_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_perfal_2021_relJun-2022.png)
+
+:::
+
+## RTHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_rethaw_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_rethaw_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_rethaw_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_rethaw_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_rethaw_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_rethaw_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_rethaw_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_rethaw_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_rethaw_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_rethaw_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_rethaw_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_rethaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_rethaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_rethaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_rethaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_rethaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_rethaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_rethaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_rethaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_rethaw_2021_relJun-2022.png)
+
+:::
+
+## SSHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_shshaw_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_shshaw_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_shshaw_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_shshaw_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_shshaw_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_shshaw_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_shshaw_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_shshaw_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_shshaw_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_shshaw_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_shshaw_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_shshaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_shshaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_shshaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_shshaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_shshaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_shshaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_shshaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_shshaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_shshaw_2021_relJun-2022.png)
+
+:::
+
+## SWHA
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_swahaw_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_swahaw_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_swahaw_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_swahaw_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_swahaw_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_swahaw_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_swahaw_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_swahaw_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_swahaw_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_swahaw_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_swahaw_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_swahaw_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_swahaw_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_swahaw_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_swahaw_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_swahaw_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_swahaw_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_swahaw_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_swahaw_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_swahaw_2021_relJun-2022.png)
+
+:::
+
+## STKI
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_swtkit_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_swtkit_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_swtkit_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_swtkit_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_swtkit_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_swtkit_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_swtkit_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_swtkit_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_swtkit_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_swtkit_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_swtkit_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_swtkit_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_swtkit_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_swtkit_2021_relJun-2022.png)
+
+:::
+
+## TUVU
+
+::: {layout-ncol=3}
+
+![2002](output/departures/summary_figs/departure_map_turvul_2002_relJun-2022.png)
+
+![2003](output/departures/summary_figs/departure_map_turvul_2003_relJun-2022.png)
+
+![2004](output/departures/summary_figs/departure_map_turvul_2004_relJun-2022.png)
+
+![2005](output/departures/summary_figs/departure_map_turvul_2005_relJun-2022.png)
+
+![2006](output/departures/summary_figs/departure_map_turvul_2006_relJun-2022.png)
+
+![2007](output/departures/summary_figs/departure_map_turvul_2007_relJun-2022.png)
+
+![2008](output/departures/summary_figs/departure_map_turvul_2008_relJun-2022.png)
+
+![2009](output/departures/summary_figs/departure_map_turvul_2009_relJun-2022.png)
+
+![2010](output/departures/summary_figs/departure_map_turvul_2010_relJun-2022.png)
+
+![2011](output/departures/summary_figs/departure_map_turvul_2011_relJun-2022.png)
+
+![2012](output/departures/summary_figs/departure_map_turvul_2012_relJun-2022.png)
+
+![2013](output/departures/summary_figs/departure_map_turvul_2013_relJun-2022.png)
+
+![2014](output/departures/summary_figs/departure_map_turvul_2014_relJun-2022.png)
+
+![2015](output/departures/summary_figs/departure_map_turvul_2015_relJun-2022.png)
+
+![2016](output/departures/summary_figs/departure_map_turvul_2016_relJun-2022.png)
+
+![2017](output/departures/summary_figs/departure_map_turvul_2017_relJun-2022.png)
+
+![2018](output/departures/summary_figs/departure_map_turvul_2018_relJun-2022.png)
+
+![2019](output/departures/summary_figs/departure_map_turvul_2019_relJun-2022.png)
+
+![2020](output/departures/summary_figs/departure_map_turvul_2020_relJun-2022.png)
+
+![2021](output/departures/summary_figs/departure_map_turvul_2021_relJun-2022.png)
+
+:::
+
+
+:::
+
+:::
+
+
+
+
+::: column-page
+
+## By Year
+
+::: {.panel-tabset}
+
+## 2002
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2002_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2002_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2002_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2002_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2002_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2002_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2002_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2002_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2002_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2002_relJun-2022.png)
+
+:::
+
+## 2003
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2003_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2003_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2003_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2003_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2003_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2003_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2003_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_empty_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2003_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2003_relJun-2022.png)
+
+:::
+
+## 2004
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2004_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2004_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2004_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2004_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2004_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2004_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2004_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2004_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_empty_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2004_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2004_relJun-2022.png)
+
+:::
+
+## 2005
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_empty_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2005_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2005_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_empty_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2005_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2005_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2005_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2005_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2005_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2005_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2005_relJun-2022.png)
+
+:::
+
+## 2006
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2006_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2006_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2006_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2006_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2006_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2006_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2006_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2006_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2006_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2006_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2006_relJun-2022.png)
+
+:::
+
+## 2007
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2007_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2007_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2007_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2007_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2007_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2007_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2007_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2007_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2007_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2007_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_empty_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2007_relJun-2022.png)
+
+:::
+
+## 2008
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2008_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2008_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2008_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2008_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2008_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2008_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2008_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2008_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2008_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2008_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2008_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2008_relJun-2022.png)
+
+:::
+
+## 2009
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2009_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2009_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_empty_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2009_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2009_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2009_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2009_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2009_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2009_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2009_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2009_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2009_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2009_relJun-2022.png)
+
+:::
+
+## 2010
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2010_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_empty_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2010_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_empty_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2010_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2010_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2010_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2010_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2010_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2010_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2010_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2010_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2010_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2010_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2010_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2010_relJun-2022.png)
+
+:::
+
+## 2011
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2011_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2011_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2011_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2011_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2011_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_empty_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2011_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2011_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2011_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2011_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2011_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2011_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2011_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2011_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2011_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2011_relJun-2022.png)
+
+:::
+
+## 2012
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2012_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2012_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2012_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2012_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2012_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_empty_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2012_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2012_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2012_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2012_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2012_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2012_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2012_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2012_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2012_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2012_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2012_relJun-2022.png)
+
+:::
+
+## 2013
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2013_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2013_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2013_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2013_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2013_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2013_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2013_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2013_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2013_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2013_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2013_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2013_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2013_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2013_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2013_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2013_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2013_relJun-2022.png)
+
+:::
+
+## 2014
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2014_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2014_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2014_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2014_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2014_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2014_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2014_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2014_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2014_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2014_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2014_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2014_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2014_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2014_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2014_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2014_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2014_relJun-2022.png)
+
+:::
+
+## 2015
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2015_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2015_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2015_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2015_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2015_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2015_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2015_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2015_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2015_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2015_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2015_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2015_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2015_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2015_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2015_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2015_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2015_relJun-2022.png)
+
+:::
+
+## 2016
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2016_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2016_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2016_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2016_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2016_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2016_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2016_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2016_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2016_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2016_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2016_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2016_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2016_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2016_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2016_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2016_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2016_relJun-2022.png)
+
+:::
+
+## 2017
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2017_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2017_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2017_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2017_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2017_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2017_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2017_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2017_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2017_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2017_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2017_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2017_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2017_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2017_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2017_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2017_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2017_relJun-2022.png)
+
+:::
+
+## 2018
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2018_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2018_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2018_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2018_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2018_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2018_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2018_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2018_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2018_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2018_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2018_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2018_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2018_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2018_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2018_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2018_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2018_relJun-2022.png)
+
+:::
+
+## 2019
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2019_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2019_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2019_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2019_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2019_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2019_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2019_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2019_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2019_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2019_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2019_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2019_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2019_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2019_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2019_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2019_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2019_relJun-2022.png)
+
+:::
+
+## 2020
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2020_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2020_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2020_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2020_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2020_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2020_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2020_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2020_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2020_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2020_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2020_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2020_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2020_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2020_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2020_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2020_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2020_relJun-2022.png)
+
+:::
+
+## 2021
+
+::: {layout-ncol=3}
+![American Kestrel](output/departures/summary_figs/departure_map_amekes_2021_relJun-2022.png)
+
+![Bald Eagle](output/departures/summary_figs/departure_map_baleag_2021_relJun-2022.png)
+
+![Broad-winged Hawk](output/departures/summary_figs/departure_map_brwhaw_2021_relJun-2022.png)
+
+![Burrowing Owl](output/departures/summary_figs/departure_map_burowl_2021_relJun-2022.png)
+
+![Cooper's Hawk](output/departures/summary_figs/departure_map_coohaw_2021_relJun-2022.png)
+
+![Ferruginous Hawk](output/departures/summary_figs/departure_map_ferhaw_2021_relJun-2022.png)
+
+![Golden Eagle](output/departures/summary_figs/departure_map_goleag_2021_relJun-2022.png)
+
+![Merlin](output/departures/summary_figs/departure_map_merlin_2021_relJun-2022.png)
+
+![Mississippi Kite](output/departures/summary_figs/departure_map_miskit_2021_relJun-2022.png)
+
+![Northern Harrier](output/departures/summary_figs/departure_map_norhar2_2021_relJun-2022.png)
+
+![Osprey](output/departures/summary_figs/departure_map_osprey_2021_relJun-2022.png)
+
+![Peregrine Falcon](output/departures/summary_figs/departure_map_perfal_2021_relJun-2022.png)
+
+![Red-tailed Hawk](output/departures/summary_figs/departure_map_rethaw_2021_relJun-2022.png)
+
+![Sharp-shinned Hawk](output/departures/summary_figs/departure_map_shshaw_2021_relJun-2022.png)
+
+![Swainson's Hawk](output/departures/summary_figs/departure_map_swahaw_2021_relJun-2022.png)
+
+![Swallow-tailed Kite](output/departures/summary_figs/departure_map_swtkit_2021_relJun-2022.png)
+
+![Turkey Vulture](output/departures/summary_figs/departure_map_turvul_2021_relJun-2022.png)
+
+:::
+
+:::
+
+:::
+
+

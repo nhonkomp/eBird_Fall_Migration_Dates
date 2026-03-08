@@ -89,3 +89,4 @@ for(i in 1:length(alpha_codes)){
 
 print("script complete")
 
+#check the lists that were not assigned to a cell and re-run scripts 04 and 05 if necessary.
