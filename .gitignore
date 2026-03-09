@@ -20,7 +20,7 @@ output/
 #quarto libs
 *_files/
 
-
+*.Rproj
 
 
 

@@ -3,7 +3,9 @@ This repository creates a dataset of gridded annual fall migration dates (averag
 
 The code in this repository requires access to a computer cluster with R installed and access to R and Rstudio on a local device. All data management, analyses, and visualizations are produced with R. Submission scripts used for running the R scripts on a cluster computer are provided as examples. These must be updated to match your system prior to running. 
 
-Large portions of this code are based off of the scripts in this repository: https://github.com/phenomismatch/Bird_Phenology , Accessed between June 2022 and June 2025."Copyright (c) 2019 Casey Youngflesh" is included at the top of scripts containing substantial portions of the original code.
+Large portions of code in several scripts are based off the auk package Vingette (Strimas-Mackey et al., 2026) and code provided in Best Practices for Using eBird (Strimas-Mackey et al., 2020).
+
+The majority of the code in /script/Run_on_HPC/12_gams_halfmax.R is based off this repository: https://github.com/phenomismatch/Bird_Phenology , Accessed between June 2022 and June 2025. Copyright (c) 2019 Casey Youngflesh
 
 ## Usage Instructions
 The following is a brief description of how to use this code. More descriptive instructions are provided in the script annotations. Always review outputs to ensure code ran as expected.
@@ -37,3 +39,4 @@ NOTE: We found a handful of the GAMs that ran create plots with multiple peaks i
 - eBird. 2021. eBird: An online database of bird distribution and abundance [web application]. eBird, Cornell Lab of Ornithology, Ithaca, New York. Available: http://www.ebird.org. 
 - Powers, B.F., Winiarski, J.M., Requena-Mullor, J.M. and Heath, J.A. (2021), *Intra-specific variation in migration phenology of American Kestrels (Falco sparverius) in response to spring temperatures.* Ibis, 163: 1448-1456. https://doi.org/10.1111/ibi.12953
 - Strimas-Mackey, M., W.M. Hochachka, V. Ruiz-Gutierrez, O.J. Robinson, E.T. Miller, T. Auer, S. Kelling, D. Fink, A. Johnston. 2020. *Best Practices for Using eBird Data*. Version 1.0. https://cornelllabofornithology.github.io/ebird-best-practices/. Cornell Lab of Ornithology, Ithaca, New York. https://doi.org/10.5281/zenodo.3620739\
+- Strimas-Mackey M, Miller E, Hochachka W (2026). auk: eBird Data Extraction and Processing in R. R package version 0.9.1, https://cornelllabofornithology.github.io/auk/.
