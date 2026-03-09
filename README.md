@@ -1,5 +1,5 @@
 # eBird_Fall_Migration_Dates
-This repository creates a dataset of modelled fall migration dates for a pre-determined list of species using eBird data. Additional outcomes include visual assessments of effort variabels and spatiotemporal data availability. The resulting data set can be used in analyses performed in this repository: _________.
+This repository creates a dataset of gridded annual fall migration dates (average and standard error) for a pre-determined list of species using eBird data and Bayesian GAMMs. Additional outcomes include visual assessments of effort variabels and spatiotemporal data availability. The resulting dataset can be used in analyses performed in this repository: https://github.com/nhonkomp/Species-Specific-Weather-Effects.
 
 The code in this repository requires access to a computer cluster with R installed and access to R and Rstudio on a local device. All data management, analyses, and visualizations are produced with R. Submission scripts used for running the R scripts on a cluster computer are provided as examples. These must be updated to match your system prior to running. 
 
@@ -8,11 +8,12 @@ Large portions of this code are based off of the scripts in this repository: htt
 ## Usage Instructions
 The following is a brief description of how to use this code. More descriptive instructions are provided in the script annotations. Always review outputs to ensure code ran as expected.
 
-Before you start:
+### Before you start:
 - obtain the eBird Basic Dataset (EBD) and Sampling Event Data (SED) for the years and locations of interest (eBird, 2021). EBD files must separated by species (i.e. one download per species).
 - obtain access to a cluster computing system or high performance computer. Modify the files in the "sh_files" folder to match your system.
 - Update the parameters.R script to match the species, years, and locations of interest.
  
+### To use the code:
 1. Run /scripts/Run_locally/00_set_up_local.R on the local device.
 2. Place extracted EBD and SED data files (.txt format) into /data/raw.
 3. Run /scripts/Run_on_HPC/00_set_up_borah.R on the cluster computer.
@@ -21,9 +22,15 @@ Before you start:
 6. Run /scripts/Run_locally/04_create_grid.R on your local device.
 7. Place the transfer the output of this script to the directory on the cluster computer.
 8. Run /script/Run_on_HPC/05_assign_cell_IDs.R, .../06_removed_overall.R, .../07_effort_years.R, .../08_species_effort.R, .../09_removed_specific.R, and .../10_data_availability.R on the cluster computer.
-9. 
+9. Transfer outputs from these scripts on the cluster computer to the associated directories on your local device.
+10. Update the png file names in /11_refine_species.qmd on your local device and Knit this file.
+11. Based on these results, refine the species list in the /parameters.R files on your local device, then transfer the updated /parameters.R file to the HPC.
+12. Move the data file for each species in the refined species list from /data/removed_specific/ to /data/refined_species/ on the computer cluster.
+13. Run /script/Run_on_HPC/12_gams_halfmax.R on the cluster computer. This involves subsetting the data across many jobs, potentially running one job for each species/cell/year combnation.
+14. Run /script/Run_on_HPC/13_combine_halfmax.R on the cluster computer. (This creates the finalized dataset). Transfer the output files from this script to the appropriate directories on your local device.
+15. Update the png file names in /14_departure_dates.qmd and Knit this file to visualize the fall migration dates produced in step 14.
 
-
+NOTE: We found a handful of the GAMs that ran create plots with multiple peaks in the probability a species was observed over time. In these instances, the resulting mean fall migration dates were skewed earlier and the standard deviation of the date of halfmax distribution was elevated. Because this happened in a limited number of cases, we opted to correct this by hand. This involved reviewing the plots created by 12_gams_halfmax.R to identify GAMs that resulted in multiple peaks. We then created a csv listing each species/cell/year combination that required fixing and a date cut off date before which any halfmaxes that were calculated are considered incorrect. We then ran the /scripts/Run_locally/Manual_fix_hms.R file on our local device after script 13 but before running script 14. This script removes halfmax dates that occur before the cut off from the average fall migration date caluclation. This decrease in number of values used to caluclate an average results in a larger standard error, which reflects an increase in the uncertainty of the average fall migration date. 
 
 
 ## Citations

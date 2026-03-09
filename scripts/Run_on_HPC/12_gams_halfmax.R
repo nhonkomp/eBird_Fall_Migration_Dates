@@ -1,7 +1,7 @@
 #This script fits a gam for the proportion of lists reporting the target species within each year and each cell for each species
 #output: data frames of halfmax distributions and model diagnostics, png's or GAM predictions and divergent chains
 
-#Code adapted from Bre Power's analysis (now more from Youngflesh et al. 2021)
+#Code adapted from Bird_Phenology repository. Copyright (c) 2019 Casey Youngflesh
 
 #make sure each species has a file in "./data/refined_species" folder
 #make sure "./output/departures/halfmax_data", "./output/departures/divergent_chains", and "./output/departures/halfmax_pngs" exist
