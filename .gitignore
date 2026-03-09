@@ -18,7 +18,7 @@ output/
 *.html
 
 #quarto libs
-*_files/
+#*_files/ #this was not letting me back up the sh_files/ folder. but may want to turn back on when running .qmd files
 
 *.Rproj
 
